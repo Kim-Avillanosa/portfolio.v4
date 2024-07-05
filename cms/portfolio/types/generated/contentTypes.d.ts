@@ -921,6 +921,7 @@ export interface ApiMeMe extends Schema.SingleType {
       'oneToMany',
       'api::offered-service.offered-service'
     >;
+    Photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
