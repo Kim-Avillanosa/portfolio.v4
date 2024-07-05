@@ -4,7 +4,8 @@
   "info": {
     "singularName": "experience",
     "pluralName": "experiences",
-    "displayName": "Experience"
+    "displayName": "Experience",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,22 +19,28 @@
       "type": "boolean"
     },
     "Responsibilities": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "startDate": {
-      "type": "string"
+      "type": "date",
+      "required": true
     },
     "endDate": {
+      "type": "date"
+    },
+    "Position": {
       "type": "string"
     }
   }
