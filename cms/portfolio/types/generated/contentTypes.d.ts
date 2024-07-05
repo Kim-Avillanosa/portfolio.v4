@@ -788,6 +788,38 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCertificationCertification extends Schema.CollectionType {
+  collectionName: 'certifications';
+  info: {
+    singularName: 'certification';
+    pluralName: 'certifications';
+    displayName: 'Certification';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Attachment: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    Description: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::certification.certification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::certification.certification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiClientCompanyClientCompany extends Schema.CollectionType {
   collectionName: 'client_companies';
   info: {
@@ -922,6 +954,11 @@ export interface ApiMeMe extends Schema.SingleType {
       'api::offered-service.offered-service'
     >;
     Photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    certifications: Attribute.Relation<
+      'api::me.me',
+      'oneToMany',
+      'api::certification.certification'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1078,6 +1115,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::certification.certification': ApiCertificationCertification;
       'api::client-company.client-company': ApiClientCompanyClientCompany;
       'api::education.education': ApiEducationEducation;
       'api::experience.experience': ApiExperienceExperience;
