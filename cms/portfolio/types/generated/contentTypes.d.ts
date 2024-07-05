@@ -904,7 +904,7 @@ export interface ApiMeMe extends Schema.SingleType {
   info: {
     singularName: 'me';
     pluralName: 'us';
-    displayName: 'me';
+    displayName: 'Me';
     description: '';
   };
   options: {
@@ -916,12 +916,49 @@ export interface ApiMeMe extends Schema.SingleType {
     address: Attribute.Text;
     Bio: Attribute.String;
     Description: Attribute.String;
+    offered_services: Attribute.Relation<
+      'api::me.me',
+      'oneToMany',
+      'api::offered-service.offered-service'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::me.me', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::me.me', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOfferedServiceOfferedService extends Schema.CollectionType {
+  collectionName: 'offered_services';
+  info: {
+    singularName: 'offered-service';
+    pluralName: 'offered-services';
+    displayName: 'OfferedService';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Task: Attribute.String;
+    Description: Attribute.RichText;
+    Banner: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::offered-service.offered-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::offered-service.offered-service',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1044,6 +1081,7 @@ declare module '@strapi/types' {
       'api::education.education': ApiEducationEducation;
       'api::experience.experience': ApiExperienceExperience;
       'api::me.me': ApiMeMe;
+      'api::offered-service.offered-service': ApiOfferedServiceOfferedService;
       'api::project.project': ApiProjectProject;
       'api::social.social': ApiSocialSocial;
       'api::tech-stack.tech-stack': ApiTechStackTechStack;

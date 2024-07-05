@@ -4,7 +4,7 @@
   "info": {
     "singularName": "me",
     "pluralName": "us",
-    "displayName": "me",
+    "displayName": "Me",
     "description": ""
   },
   "options": {
@@ -26,6 +26,11 @@
     },
     "Description": {
       "type": "string"
+    },
+    "offered_services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offered-service.offered-service"
     }
   }
 }
