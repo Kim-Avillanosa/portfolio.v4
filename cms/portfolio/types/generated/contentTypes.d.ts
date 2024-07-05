@@ -788,6 +788,69 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiClientCompanyClientCompany extends Schema.CollectionType {
+  collectionName: 'client_companies';
+  info: {
+    singularName: 'client-company';
+    pluralName: 'client-companies';
+    displayName: 'clientCompany';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Address: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::client-company.client-company',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::client-company.client-company',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEducationEducation extends Schema.CollectionType {
+  collectionName: 'educations';
+  info: {
+    singularName: 'education';
+    pluralName: 'educations';
+    displayName: 'education';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    startDate: Attribute.Date;
+    endDate: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiExperienceExperience extends Schema.CollectionType {
   collectionName: 'experiences';
   info: {
@@ -802,11 +865,17 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
   attributes: {
     companyName: Attribute.String;
     currentJob: Attribute.Boolean;
-    Responsibilities: Attribute.Text & Attribute.Required;
     Logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     startDate: Attribute.Date & Attribute.Required;
     endDate: Attribute.Date;
     Position: Attribute.String;
+    CompanyAddress: Attribute.Text;
+    Responsibilities: Attribute.RichText;
+    client_companies: Attribute.Relation<
+      'api::experience.experience',
+      'oneToMany',
+      'api::client-company.client-company'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -818,6 +887,62 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMeMe extends Schema.SingleType {
+  collectionName: 'us';
+  info: {
+    singularName: 'me';
+    pluralName: 'us';
+    displayName: 'me';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactNumber: Attribute.String;
+    email: Attribute.Email;
+    address: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::me.me', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::me.me', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProjectProject extends Schema.CollectionType {
+  collectionName: 'projects';
+  info: {
+    singularName: 'project';
+    pluralName: 'projects';
+    displayName: 'Project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+    Source: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project.project',
       'oneToOne',
       'admin::user'
     > &
@@ -858,6 +983,37 @@ export interface ApiSocialSocial extends Schema.SingleType {
   };
 }
 
+export interface ApiTechStackTechStack extends Schema.CollectionType {
+  collectionName: 'tech_stacks';
+  info: {
+    singularName: 'tech-stack';
+    pluralName: 'tech-stacks';
+    displayName: 'TechStack';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tech-stack.tech-stack',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tech-stack.tech-stack',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -876,8 +1032,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::client-company.client-company': ApiClientCompanyClientCompany;
+      'api::education.education': ApiEducationEducation;
       'api::experience.experience': ApiExperienceExperience;
+      'api::me.me': ApiMeMe;
+      'api::project.project': ApiProjectProject;
       'api::social.social': ApiSocialSocial;
+      'api::tech-stack.tech-stack': ApiTechStackTechStack;
     }
   }
 }

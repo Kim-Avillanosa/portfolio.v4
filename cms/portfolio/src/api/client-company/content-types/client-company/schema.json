@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "client_companies",
+  "info": {
+    "singularName": "client-company",
+    "pluralName": "client-companies",
+    "displayName": "clientCompany"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    }
+  }
+}

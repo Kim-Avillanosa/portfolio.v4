@@ -18,10 +18,6 @@
     "currentJob": {
       "type": "boolean"
     },
-    "Responsibilities": {
-      "type": "text",
-      "required": true
-    },
     "Logo": {
       "type": "media",
       "multiple": false,
@@ -42,6 +38,17 @@
     },
     "Position": {
       "type": "string"
+    },
+    "CompanyAddress": {
+      "type": "text"
+    },
+    "Responsibilities": {
+      "type": "richtext"
+    },
+    "client_companies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::client-company.client-company"
     }
   }
 }
