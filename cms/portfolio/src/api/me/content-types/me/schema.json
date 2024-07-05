@@ -4,7 +4,8 @@
   "info": {
     "singularName": "me",
     "pluralName": "us",
-    "displayName": "me"
+    "displayName": "me",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,12 @@
     },
     "address": {
       "type": "text"
+    },
+    "Bio": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
     }
   }
 }

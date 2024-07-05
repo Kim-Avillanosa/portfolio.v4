@@ -49,6 +49,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::client-company.client-company"
+    },
+    "tech_stacks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tech-stack.tech-stack"
     }
   }
 }

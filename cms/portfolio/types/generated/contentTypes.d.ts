@@ -876,6 +876,11 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
       'oneToMany',
       'api::client-company.client-company'
     >;
+    tech_stacks: Attribute.Relation<
+      'api::experience.experience',
+      'oneToMany',
+      'api::tech-stack.tech-stack'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -900,6 +905,7 @@ export interface ApiMeMe extends Schema.SingleType {
     singularName: 'me';
     pluralName: 'us';
     displayName: 'me';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -908,6 +914,8 @@ export interface ApiMeMe extends Schema.SingleType {
     contactNumber: Attribute.String;
     email: Attribute.Email;
     address: Attribute.Text;
+    Bio: Attribute.String;
+    Description: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
