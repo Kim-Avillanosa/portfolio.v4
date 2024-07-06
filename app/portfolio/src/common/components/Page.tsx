@@ -8,7 +8,7 @@ interface Props {
 const Page: React.FC<PropsWithChildren<Props>> = ({ children, title }) => {
   return (
     <>
-    <title>{title}</title>
+      <title>{title}</title>
       {children}
     </>
   );

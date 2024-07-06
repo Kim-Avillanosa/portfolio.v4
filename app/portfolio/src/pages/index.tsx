@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <Page title="Kim Avillanosa">
-      <h1 className="text-3xl font-bold underline">Kim Avillanosa</h1>;
+      <h1 className="text-3xl font-bold underline">Kim Avillanosa</h1>
     </Page>
   );
 }
