@@ -4,23 +4,24 @@
   "info": {
     "singularName": "social",
     "pluralName": "socials",
-    "displayName": "Social"
+    "displayName": "Social",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "LinkedIn": {
+    "linkedIn": {
       "type": "string"
     },
-    "Website": {
+    "website": {
       "type": "string"
     },
-    "Github": {
+    "github": {
       "type": "string"
     },
-    "More": {
+    "more": {
       "type": "string"
     }
   }

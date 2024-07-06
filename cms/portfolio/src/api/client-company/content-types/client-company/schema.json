@@ -4,17 +4,18 @@
   "info": {
     "singularName": "client-company",
     "pluralName": "client-companies",
-    "displayName": "clientCompany"
+    "displayName": "clientCompany",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "Address": {
+    "address": {
       "type": "string"
     }
   }

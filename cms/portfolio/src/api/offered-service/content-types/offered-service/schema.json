@@ -4,28 +4,30 @@
   "info": {
     "singularName": "offered-service",
     "pluralName": "offered-services",
-    "displayName": "OfferedService"
+    "displayName": "OfferedService",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Task": {
+    "task": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "richtext"
     },
-    "Banner": {
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

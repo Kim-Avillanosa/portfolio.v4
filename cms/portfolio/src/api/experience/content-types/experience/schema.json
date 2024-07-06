@@ -36,13 +36,13 @@
     "endDate": {
       "type": "date"
     },
-    "Position": {
+    "position": {
       "type": "string"
     },
-    "CompanyAddress": {
+    "companyAddress": {
       "type": "text"
     },
-    "Responsibilities": {
+    "responsibilities": {
       "type": "richtext"
     },
     "client_companies": {

@@ -794,14 +794,15 @@ export interface ApiCertificationCertification extends Schema.CollectionType {
     singularName: 'certification';
     pluralName: 'certifications';
     displayName: 'Certification';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    Attachment: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    Description: Attribute.RichText;
+    title: Attribute.String;
+    attachment: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -826,13 +827,14 @@ export interface ApiClientCompanyClientCompany extends Schema.CollectionType {
     singularName: 'client-company';
     pluralName: 'client-companies';
     displayName: 'clientCompany';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
-    Address: Attribute.String;
+    name: Attribute.String;
+    address: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -857,14 +859,16 @@ export interface ApiEducationEducation extends Schema.CollectionType {
     singularName: 'education';
     pluralName: 'educations';
     displayName: 'education';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
+    name: Attribute.String;
     startDate: Attribute.Date;
     endDate: Attribute.Date;
+    logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -900,9 +904,9 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
     Logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     startDate: Attribute.Date & Attribute.Required;
     endDate: Attribute.Date;
-    Position: Attribute.String;
-    CompanyAddress: Attribute.Text;
-    Responsibilities: Attribute.RichText;
+    position: Attribute.String;
+    companyAddress: Attribute.Text;
+    responsibilities: Attribute.RichText;
     client_companies: Attribute.Relation<
       'api::experience.experience',
       'oneToMany',
@@ -946,14 +950,14 @@ export interface ApiMeMe extends Schema.SingleType {
     contactNumber: Attribute.String;
     email: Attribute.Email;
     address: Attribute.Text;
-    Bio: Attribute.String;
-    Description: Attribute.String;
+    bio: Attribute.String;
+    description: Attribute.String;
     offered_services: Attribute.Relation<
       'api::me.me',
       'oneToMany',
       'api::offered-service.offered-service'
     >;
-    Photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     certifications: Attribute.Relation<
       'api::me.me',
       'oneToMany',
@@ -975,14 +979,15 @@ export interface ApiOfferedServiceOfferedService extends Schema.CollectionType {
     singularName: 'offered-service';
     pluralName: 'offered-services';
     displayName: 'OfferedService';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Task: Attribute.String;
-    Description: Attribute.RichText;
-    Banner: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    task: Attribute.String;
+    description: Attribute.RichText;
+    banner: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1007,14 +1012,16 @@ export interface ApiProjectProject extends Schema.CollectionType {
     singularName: 'project';
     pluralName: 'projects';
     displayName: 'Project';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    Description: Attribute.RichText;
-    Source: Attribute.String;
+    title: Attribute.String;
+    description: Attribute.RichText;
+    source: Attribute.String;
+    banner: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1039,15 +1046,16 @@ export interface ApiSocialSocial extends Schema.SingleType {
     singularName: 'social';
     pluralName: 'socials';
     displayName: 'Social';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    LinkedIn: Attribute.String;
-    Website: Attribute.String;
-    Github: Attribute.String;
-    More: Attribute.String;
+    linkedIn: Attribute.String;
+    website: Attribute.String;
+    github: Attribute.String;
+    more: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1072,12 +1080,13 @@ export interface ApiTechStackTechStack extends Schema.CollectionType {
     singularName: 'tech-stack';
     pluralName: 'tech-stacks';
     displayName: 'TechStack';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
+    name: Attribute.String;
     logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
