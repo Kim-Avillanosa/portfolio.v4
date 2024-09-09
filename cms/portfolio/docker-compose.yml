@@ -13,18 +13,13 @@ services:
 
   strapi:
     container_name: strapi
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - '1337:1337'
-    environment:
-      DATABASE_CLIENT: postgres
-      DATABASE_HOST: postgres
-      DATABASE_PORT: 5432
-      DATABASE_NAME: strapi_db
-      DATABASE_USERNAME: strapi_user
-      DATABASE_PASSWORD: strapi_password
-      DATABASE_SSL: 'false'
-      NODE_ENV: production
+    env_file:
+      - .env
     depends_on:
       - postgres
     volumes:
