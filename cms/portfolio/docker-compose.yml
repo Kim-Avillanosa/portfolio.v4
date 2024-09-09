@@ -7,6 +7,8 @@ services:
       POSTGRES_USER: strapi_user
       POSTGRES_PASSWORD: strapi_password
       POSTGRES_DB: strapi_db
+    ports:
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: always
