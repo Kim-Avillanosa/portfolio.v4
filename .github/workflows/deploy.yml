@@ -21,8 +21,8 @@ jobs:
       - name: Deploy to VPS
         run: |
           ssh -o StrictHostKeyChecking=no root@88.222.245.88 << 'EOF'
-            ls
-            cd /home/kim-avillanosa/projects/portfolio.v4/cms/portfolio
+            git clone https://github.com/Kim-Avillanosa/portfolio.v4.git
+            cd portfolio.v4/cms/portfolio
             git pull origin main
             docker-compose down
             docker-compose up -d --build
