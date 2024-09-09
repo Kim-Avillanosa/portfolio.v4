@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no username@your-vps-ip << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@88.222.245.88 << 'EOF'
             cd /path/to/your/project/portfolio.v4/cms/portfolio
             git pull origin main
             docker-compose down
