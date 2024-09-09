@@ -13,7 +13,7 @@ services:
 
   strapi:
     container_name: strapi
-    build: .
+    build: DockerFile
     ports:
       - '1337:1337'
     environment:
