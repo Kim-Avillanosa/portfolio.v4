@@ -16,7 +16,7 @@ services:
   strapi:
     container_name: strapi
     environment:
-      ADMIN_JWT_SECRET: MJZebP4cqHHORrVF4UE0MQ==
+      DATABASE_URL=jdbc:postgresql://88.222.245.88:5432/strapi_db
       API_TOKEN_SALT: gJyn2LaMwObq4y1esx5V1g==
       APP_KEYS: xvR9mh3ebsdyA1xWNLMh6A==,SBR+qOm/Zk8euw6fq98IKA==,7I35gj2lNUPzwnGp8ViyOw==,ASss5zUhkdNCA4VHT8mRzw==
       CLOUDINARY_KEY: 754286125383697
